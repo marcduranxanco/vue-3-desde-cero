@@ -11,6 +11,7 @@
 
 <script>
 
+    // Creación de props
     export default {
         props: {
             url: { String },

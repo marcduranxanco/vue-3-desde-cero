@@ -2,6 +2,7 @@
   <h1>Componentes</h1>
   <hr/>
 
+  <!-- Uso de props -->
   <Card url="https://cdn.svgporn.com/logos/vue.svg?response-content-disposition=attachment%3Bfilename%3Dvue.svg" nombre="Vue.js"/>
   <Card />
 
