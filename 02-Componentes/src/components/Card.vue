@@ -1,40 +1,32 @@
 <template>
-    <div>
+    <Grid>
         <img :src="url" :alt="nombre">
         <h2>{{ nombre }}</h2>
 
         <a :href="url" target="_blank">
             Descargar
         </a>
-    </div>
+    </Grid>
 </template>
 
 <script>
+    import Grid from './Grid.vue';
 
     // Creación de props
     export default {
-        props: {
-            url: { String },
-            nombre: { String }
-        }
-    }
-
+    props: {
+        url: { String },
+        nombre: { String }
+    },
+    components: { Grid }
+};
 </script>
 
 <style scoped>
-    div {
-        display: inline-block;
-        text-align: center;
-        border: 1px solid #f2f2f2;
-        padding: 1%;
-        border-radius: 5px;
-        margin: 4px;
-    }
-
     img {
         width: 8rem;
+        height: 8rem;
         padding: 0.5rem;
-        background: red;
     }
 
     a {
