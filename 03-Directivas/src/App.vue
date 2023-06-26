@@ -3,8 +3,8 @@
     <h1>Directivas</h1>
     <hr/>
 
-    <!-- v-on tiene el shortcut @ -->
-    <div @click="click" class="contador">Clicks: {{ clicks }}</div>
+    <!-- v-bind tiene el shorthand ":" -->
+    <img :src="url" />
 
   </div>
 </template>
@@ -12,13 +12,8 @@
 <script>
 export default {
   data: () => ({
-    clicks: 0
-  }),
-  methods: {
-    click () {
-      this.clicks++;
-    }
-  }
+    url: "https://cdn.svgporn.com/logos/google-bard-icon.svg?response-content-disposition=attachment%3Bfilename%3Dgoogle-bard-icon.svg"
+  })
 }
 </script>
 
