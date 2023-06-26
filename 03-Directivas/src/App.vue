@@ -3,9 +3,8 @@
     <h1>Directivas</h1>
     <hr/>
 
-    <ul>
-      <li v-for="(usuario, index) in usuarios" :key="index">{{index }} - {{ usuario }}</li>
-    </ul>
+    <!-- v-on tiene el shortcut @ -->
+    <div @click="click" class="contador">Clicks: {{ clicks }}</div>
 
   </div>
 </template>
@@ -13,8 +12,13 @@
 <script>
 export default {
   data: () => ({
-    usuarios: [ "Marc", "Fer", "Carlos" ]
-  })
+    clicks: 0
+  }),
+  methods: {
+    click () {
+      this.clicks++;
+    }
+  }
 }
 </script>
 
@@ -22,5 +26,11 @@ export default {
   div {
     text-align: center;
     margin: 0px 2rem;
+  }
+  .contador {
+    background: tomato;
+    color: snow;
+    font-weight: bold;
+    height: 400px;
   }
 </style>
