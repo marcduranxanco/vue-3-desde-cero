@@ -2,16 +2,14 @@
   <div>
     <h1>Directivas</h1>
     <hr/>
-    <span v-text="titulo"></span>
-    <br/>
-    <span> {{ titulo }} </span>
+    <div v-html="html" ></div>
   </div>
 </template>
 
 <script>
 export default {
   data: () => ({
-    titulo : "Hola desde vue"
+    html: "<h3>Soy un H3</h3>"
   })
 }
 </script>
