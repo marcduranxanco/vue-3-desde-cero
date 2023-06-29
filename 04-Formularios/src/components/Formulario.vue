@@ -1,5 +1,18 @@
+<script>
+    export default {
+        data: () => ({}),
+        methods: {
+            // Método tomando el evento submit
+            registrarProyecto (e) {
+                console.log("Proyecto registrado")
+                console.log(e)
+            }
+        }
+    }
+</script>
+
 <template>
-    <form>
+    <form @submit.prevent="registrarProyecto">
         <div class="mb-3">
             <label class="form-label">Proyecto</label>
             <input type="text" class="form-control" required/>
