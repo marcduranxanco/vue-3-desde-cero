@@ -1,11 +1,13 @@
 <script>
     export default {
-        data: () => ({}),
+        data: () => ({
+            proyecto: "",
+            tipo: "",
+            urgente: false
+        }),
         methods: {
-            // Método tomando el evento submit
-            registrarProyecto (e) {
-                console.log("Proyecto registrado")
-                console.log(e)
+            registrarProyecto () {
+                console.log("Click")
             }
         }
     }
@@ -15,12 +17,12 @@
     <form @submit.prevent="registrarProyecto">
         <div class="mb-3">
             <label class="form-label">Proyecto</label>
-            <input type="text" class="form-control" required/>
+            <input v-model.trim="proyecto" type="text" class="form-control" required/>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Actividad</label>
-            <select class="form-select" required>
+            <select v-model="tipo" class="form-select" required>
                 <option disabled selected value="">Seleccione un tipo...</option>
                 <option>Aplicación web con Vue.Js</option>
                 <option>Backend Service con Node.Js</option>
@@ -30,8 +32,16 @@
 
         <div class="mb-3">
             <label class="form-check-label" for="exampleCheck1">Urgente</label>
-            <input type="checkbox" class="form-check-input">
+            <input v-model="urgente" type="checkbox" class="form-check-input">
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
+
+    <hr>
+
+    <pre>
+        Proyecto: {{ proyecto }} <br>
+        Tipo: {{ tipo }} <br>
+        Urgente: {{ urgente }} <br>
+    </pre>
 </template>
