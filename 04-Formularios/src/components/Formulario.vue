@@ -19,8 +19,6 @@
                 this.proyecto = "";
                 this.tipo = "";
                 this.urgente = false;
-
-                console.log(this.proyectos)
             }
         }
     }
@@ -52,9 +50,24 @@
 
     <hr>
 
-    <pre>
-        Proyecto: {{ proyecto }} <br>
-        Tipo: {{ tipo }} <br>
-        Urgente: {{ urgente }} <br>
-    </pre>
+    <div class="table-responsive">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Proyecto</th>
+                    <th>Tipo</th>
+                    <th>Urgente</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Laravel App</td>
+                    <td>Laravel</td>
+                    <td class="bg-success">True</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </template>
