@@ -19,6 +19,9 @@
                 this.proyecto = "";
                 this.tipo = "";
                 this.urgente = false;
+            },
+            cambiarEstado (id) {
+                this.proyectos[id].urgente = !this.proyectos[id].urgente
             }
         },
         computed: {
@@ -71,7 +74,7 @@
                     <td>{{ index+1 }}</td>
                     <td>{{ proyecto.proyecto}}</td>
                     <td>{{ proyecto.tipo}}</td>
-                    <td :class="proyecto.urgente ? 'bg-success' : 'bg-danger'">
+                    <td @click="cambiarEstado(index)" :class="proyecto.urgente ? 'bg-success' : 'bg-danger'">
                         {{ proyecto.urgente ? 'Sí' : 'No' }}
                     </td>
                 </tr>
