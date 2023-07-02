@@ -20,6 +20,11 @@
                 this.tipo = "";
                 this.urgente = false;
             }
+        },
+        computed: {
+            numeroProyectos() {
+                return this.proyectos.length
+            }
         }
     }
 </script>
@@ -50,6 +55,7 @@
 
     <hr>
 
+    <h3> Total de proyectos: {{ numeroProyectos }}</h3>
     <div class="table-responsive">
         <table class="table table-dark table-hover">
             <thead>
