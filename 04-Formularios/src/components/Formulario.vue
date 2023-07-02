@@ -3,11 +3,20 @@
         data: () => ({
             proyecto: "",
             tipo: "",
-            urgente: false
+            urgente: false,
+            proyectos: []
         }),
         methods: {
             registrarProyecto () {
-                console.log("Click")
+                const proyecto = {
+                    proyecto: this.proyecto,
+                    tipo: this.tipo,
+                    urgente: this.urgente,
+                };
+
+                this.proyectos.push(proyecto);
+
+                console.log(this.proyectos)
             }
         }
     }
