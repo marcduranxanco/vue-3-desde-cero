@@ -61,11 +61,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Laravel App</td>
-                    <td>Laravel</td>
-                    <td class="bg-success">True</td>
+                <tr v-for="(proyecto, index) in proyectos" :key="index">
+                    <td>{{ index+1 }}</td>
+                    <td>{{ proyecto.proyecto}}</td>
+                    <td>{{ proyecto.tipo}}</td>
+                    <td class="bg-success">{{ proyecto.urgente}}</td>
                 </tr>
             </tbody>
         </table>
