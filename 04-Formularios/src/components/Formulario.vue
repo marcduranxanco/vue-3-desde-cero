@@ -51,7 +51,7 @@
     <hr>
 
     <div class="table-responsive">
-        <table class="table table-dark">
+        <table class="table table-dark table-hover">
             <thead>
                 <tr>
                     <th>#</th>
@@ -65,7 +65,9 @@
                     <td>{{ index+1 }}</td>
                     <td>{{ proyecto.proyecto}}</td>
                     <td>{{ proyecto.tipo}}</td>
-                    <td class="bg-success">{{ proyecto.urgente}}</td>
+                    <td :class="proyecto.urgente ? 'bg-success' : 'bg-danger'">
+                        {{ proyecto.urgente ? 'Sí' : 'No' }}
+                    </td>
                 </tr>
             </tbody>
         </table>
