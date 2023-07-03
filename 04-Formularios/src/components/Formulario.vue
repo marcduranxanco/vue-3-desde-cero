@@ -12,6 +12,7 @@
                     proyecto: this.proyecto,
                     tipo: this.tipo,
                     urgente: this.urgente,
+                    completado: false
                 };
 
                 this.proyectos.push(proyecto);
@@ -20,8 +21,8 @@
                 this.tipo = "";
                 this.urgente = false;
             },
-            cambiarEstado (id) {
-                this.proyectos[id].urgente = !this.proyectos[id].urgente
+            cambiarEstado (proyecto, campo) {
+                proyecto[campo] = !proyecto[campo]
             }
         },
         computed: {
@@ -52,9 +53,15 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-check-label" for="exampleCheck1">Urgente</label>
+                    <label class="form-check-label">Urgente</label>
                     <input v-model="urgente" type="checkbox" class="form-check-input">
                 </div>
+
+                <div class="mb-3">
+                    <label class="form-check-label">Completado</label>
+                    <input v-model="completado" type="checkbox" class="form-check-input">
+                </div>
+
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
         </div>
@@ -68,6 +75,7 @@
                             <th>Proyecto</th>
                             <th>Tipo</th>
                             <th>Urgente</th>
+                            <th>Completado</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -75,8 +83,11 @@
                             <td>{{ index+1 }}</td>
                             <td>{{ proyecto.proyecto}}</td>
                             <td>{{ proyecto.tipo}}</td>
-                            <td @click="cambiarEstado(index)" :class="proyecto.urgente ? 'bg-success' : 'bg-danger'">
+                            <td @click="cambiarEstado(proyecto, 'urgente')" :class="proyecto.urgente ? 'bg-success' : 'bg-danger'">
                                 {{ proyecto.urgente ? 'Sí' : 'No' }}
+                            </td>
+                            <td @click="cambiarEstado(proyecto, 'completado')" :class="proyecto.completado ? 'bg-success' : 'bg-danger'">
+                                {{ proyecto.completado ? 'Completo' : 'Incompleto' }}
                             </td>
                         </tr>
                     </tbody>
