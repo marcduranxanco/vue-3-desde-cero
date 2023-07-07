@@ -13,7 +13,7 @@
 <script>
     export default {
         data: () => ({
-            url: "https://cdn.svgporn.com/logos/google-bard-icon.svg?response-content-disposition=attachment%3Bfilename%3Dgoogle-bard-icon.svg"
+            url: "https://cdn.svgporn.com/logos/vue.svg?response-content-disposition=attachment%3Bfilename%3Dvue.svg"
         })
     };
 </script>

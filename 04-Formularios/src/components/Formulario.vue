@@ -35,6 +35,19 @@
 
 <template>
     <div class="row">
+        <div class="col-12 mb-4">
+            <h3 class="text-center">Progeso: 0%</h3>
+            <div class="progress">
+                <div 
+                    class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                    role="progressbar"
+                    aria-valuenow="25"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 25%;"
+                ></div>
+            </div>
+        </div>
         <div class="col-12 col-md-4">
             <form @submit.prevent="registrarProyecto">
                 <div class="mb-3">
