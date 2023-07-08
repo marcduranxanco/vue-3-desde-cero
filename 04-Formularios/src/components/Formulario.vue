@@ -37,8 +37,7 @@
                     }
                 })
 
-                return completados * 100 / this.numeroProyectos;
-
+                return (completados * 100) / this.numeroProyectos || 0;
             },
 
         }
@@ -48,15 +47,15 @@
 <template>
     <div class="row">
         <div class="col-12 mb-4">
-            <h3 class="text-center">Progeso: 0%</h3>
+            <h3 class="text-center">Progeso: {{ porcentaje }}%</h3>
             <div class="progress">
                 <div 
                     class="progress-bar progress-bar-striped progress-bar-animated bg-success"
                     role="progressbar"
-                    aria-valuenow="25"
+                    :aria-valuenow="porcentaje"
                     aria-valuemin="0"
                     aria-valuemax="100"
-                    style="width: {{ porcentaje }}%;"
+                    :style="`width: ${porcentaje}%;`"
                 ></div>
             </div>
         </div>
@@ -80,11 +79,6 @@
                 <div class="mb-3">
                     <label class="form-check-label">Urgente</label>
                     <input v-model="urgente" type="checkbox" class="form-check-input">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-check-label">Completado</label>
-                    <input v-model="completado" type="checkbox" class="form-check-input">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Guardar</button>
