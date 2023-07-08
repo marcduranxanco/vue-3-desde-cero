@@ -1,5 +1,12 @@
 <script>
+    import ProgressBar from './ProgressBar.vue';
+    import TotalProyectos from './TotalProyectos.vue';
+
     export default {
+        components: {
+            ProgressBar,
+            TotalProyectos
+        },
         data: () => ({
             proyecto: "",
             tipo: "",
@@ -47,17 +54,7 @@
 <template>
     <div class="row">
         <div class="col-12 mb-4">
-            <h3 class="text-center">Progeso: {{ porcentaje }}%</h3>
-            <div class="progress">
-                <div 
-                    class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-                    role="progressbar"
-                    :aria-valuenow="porcentaje"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    :style="`width: ${porcentaje}%;`"
-                ></div>
-            </div>
+            <ProgressBar :porcentaje=porcentaje />
         </div>
         <div class="col-12 col-md-4">
             <form @submit.prevent="registrarProyecto">
@@ -85,33 +82,7 @@
             </form>
         </div>
         <div class="col-12 col-md-8">
-            <h3> Total de proyectos: {{ numeroProyectos }}</h3>
-            <div class="table-responsive">
-                <table class="table table-dark table-hover">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Proyecto</th>
-                            <th>Tipo</th>
-                            <th>Urgente</th>
-                            <th>Completado</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="(proyecto, index) in proyectos" :key="index">
-                            <td>{{ index+1 }}</td>
-                            <td>{{ proyecto.proyecto}}</td>
-                            <td>{{ proyecto.tipo}}</td>
-                            <td @click="cambiarEstado(proyecto, 'urgente')" :class="proyecto.urgente ? 'bg-success' : 'bg-danger'">
-                                {{ proyecto.urgente ? 'Sí' : 'No' }}
-                            </td>
-                            <td @click="cambiarEstado(proyecto, 'completado')" :class="proyecto.completado ? 'bg-success' : 'bg-danger'">
-                                {{ proyecto.completado ? 'Completo' : 'Incompleto' }}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <TotalProyectos :numeroProyectos=numeroProyectos :proyectos=proyectos :cambiarEstado=cambiarEstado />
         </div>
     </div>
 </template>
