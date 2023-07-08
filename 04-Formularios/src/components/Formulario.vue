@@ -28,7 +28,19 @@
         computed: {
             numeroProyectos() {
                 return this.proyectos.length
-            }
+            },
+            porcentaje() {
+                let completados = 0
+                this.proyectos.map(proyecto => {
+                    if(proyecto.completado) {
+                        completados++
+                    }
+                })
+
+                return completados * 100 / this.numeroProyectos;
+
+            },
+
         }
     }
 </script>
@@ -44,7 +56,7 @@
                     aria-valuenow="25"
                     aria-valuemin="0"
                     aria-valuemax="100"
-                    style="width: 25%;"
+                    style="width: {{ porcentaje }}%;"
                 ></div>
             </div>
         </div>
