@@ -23,6 +23,7 @@
                 };
 
                 this.proyectos.push(proyecto);
+                localStorage.setItem("proyectos", JSON.stringify(this.proyectos));
 
                 this.proyecto = "";
                 this.tipo = "";
@@ -47,6 +48,9 @@
                 return (completados * 100) / this.numeroProyectos || 0;
             },
 
+        },
+        mounted() {
+            this.proyectos = JSON.parse(localStorage.getItem("proyectos")) || [];
         }
     }
 </script>
