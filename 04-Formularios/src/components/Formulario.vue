@@ -23,7 +23,7 @@
                 };
 
                 this.proyectos.push(proyecto);
-                localStorage.setItem("proyectos", JSON.stringify(this.proyectos));
+                this.saveData()
 
                 this.proyecto = "";
                 this.tipo = "";
@@ -31,6 +31,14 @@
             },
             cambiarEstado (proyecto, campo) {
                 proyecto[campo] = !proyecto[campo]
+                this.saveData()
+            },
+            saveData() {
+                localStorage.setItem("proyectos", JSON.stringify(this.proyectos));
+            },
+            limpiarData() {
+                this.proyectos = [];
+                localStorage.clear();
             }
         },
         computed: {
@@ -86,7 +94,12 @@
             </form>
         </div>
         <div class="col-12 col-md-8">
-            <TotalProyectos :numeroProyectos=numeroProyectos :proyectos=proyectos :cambiarEstado=cambiarEstado />
+            <TotalProyectos
+                :numeroProyectos=numeroProyectos
+                :proyectos=proyectos
+                :cambiarEstado=cambiarEstado
+                :limpiarData=limpiarData
+                />
         </div>
     </div>
 </template>
