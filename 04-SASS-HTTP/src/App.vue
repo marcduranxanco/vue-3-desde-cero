@@ -1,6 +1,6 @@
 <template>
    <div>
-    <h1>VUE 3 + SAAS</h1>
+    <h1>Cotizador de Ciptomonedas</h1>
    </div>
 </template>
 
