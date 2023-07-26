@@ -8,4 +8,17 @@ body {
   background-color: #333;
   color: snow;
   font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  margin: 30px;
+  padding: 15px;
+  border: solid 1px snow;
+  border-radius: 5px;
+  background-color: #1f1f1f;
+  box-shadow: 1px 1px 24px snow;
 }/*# sourceMappingURL=base.css.map */
