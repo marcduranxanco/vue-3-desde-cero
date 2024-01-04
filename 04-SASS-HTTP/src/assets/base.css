@@ -56,4 +56,34 @@ button {
 button:hover {
   background: #bb4646;
   transition: background 0.3s;
+}
+
+.data {
+  text-align: center;
+}
+
+h2 {
+  margin-top: 5px;
+  color: gold;
+}
+
+h3 {
+  font-size: 40px;
+}
+h3 .cripto {
+  color: tomato;
+}
+h3 .moneda {
+  color: lime;
+}
+
+img {
+  width: 170px;
+}
+
+p {
+  font-size: 50px;
+}
+p strong {
+  color: orange;
 }/*# sourceMappingURL=base.css.map */
