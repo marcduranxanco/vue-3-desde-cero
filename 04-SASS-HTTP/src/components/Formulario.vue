@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form @submit.prevent="obtener">
+        <form @submit.prevent="obtener(this.cripto, this.moneda)">
             <div>
                 <label>Moneda nacional:</label>
                 <select v-model="moneda" required>
@@ -32,13 +32,6 @@ export default {
         moneda: "",
         cripto: ""
     }),
-    methods: {
-        async obtener(){
-            const endpoint = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${encodeURI(this.cripto)}&tsyms=${encodeURI(this.moneda)}`;
-            const res = await fetch(endpoint);
-            const data = await res.json();
-            console.log(data);
-        }
-    }
+    props: ["obtener"]
 }
 </script>
