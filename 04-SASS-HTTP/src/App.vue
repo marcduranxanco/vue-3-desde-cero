@@ -2,7 +2,7 @@
    <div class="container">
     <h1>Cotizador de Ciptomonedas</h1>
     <grid>
-      <formulario :obtener="obtener"/>
+      <formulario @info-monedas="obtener" />
       <Data />
     </grid>
    </div>

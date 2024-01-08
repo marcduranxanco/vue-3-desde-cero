@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form @submit.prevent="obtener(this.cripto, this.moneda)">
+        <form @submit.prevent="$emit( 'infoMonedas', this.cripto, this.moneda )">
             <div>
                 <label>Moneda nacional:</label>
                 <select v-model="moneda" required>
@@ -31,7 +31,6 @@ export default {
     data: () => ({
         moneda: "",
         cripto: ""
-    }),
-    props: ["obtener"]
+    })
 }
 </script>
