@@ -22,7 +22,7 @@ export default {
     info: {
       cripto: "*",
       moneda: "*",
-      img: "",
+      img: "/media/37746251/btc.png",
       precio: 0
     }
   }),
@@ -31,12 +31,15 @@ export default {
         async obtener(cripto, moneda){
             const endpoint = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${encodeURI(cripto)}&tsyms=${encodeURI(moneda)}`;
             const res = await fetch(endpoint);
-            const data = await res.json();
 
-            const dataCripto = data.RAW[cripto];
-            const dataMoneda = dataCripto[moneda];
+            const { RAW } = await res.json();
+            const dataCripto = RAW[cripto];
+            const data = dataCripto[moneda];
 
-            console.log(dataMoneda);
+            this.info.cripto = cripto;
+            this.info.moneda = moneda;
+            this.info.img = data.IMAGEURL;
+            this.info.precio = data.PRICE;
         }
     }
 }
