@@ -34,7 +34,7 @@ export default {
     }),
     methods: {
         async obtener(){
-            const endpoint = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD";
+            const endpoint = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${encodeURI(this.cripto)}&tsyms=${encodeURI(this.moneda)}`;
             const res = await fetch(endpoint);
             const data = await res.json();
             console.log(data);
