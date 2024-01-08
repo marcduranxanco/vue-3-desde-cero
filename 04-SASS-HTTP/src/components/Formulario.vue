@@ -1,9 +1,9 @@
 <template>
     <div>
-        <form>
+        <form @submit.prevent="obtener">
             <div>
                 <label>Moneda nacional:</label>
-                <select required>
+                <select v-model="moneda" required>
                     <option value="" disabled selected>Seleccione moneda...</option>
                     <option>MXN</option>
                     <option>USD</option>
@@ -12,7 +12,7 @@
             </div>
             <div>
                 <label>Criptomoneda:</label>
-                <select required>
+                <select v-model="cripto" required>
                     <option value="" disabled selected>Seleccione moneda...</option>
                     <option>BTC</option>
                     <option>ETH</option>
@@ -28,6 +28,14 @@
 
 <script>
 export default {
-
+    data: () => ({
+        moneda: "",
+        cripto: ""
+    }),
+    methods: {
+        obtener(){
+            console.log(this.moneda, this.cripto)
+        }
+    }
 }
 </script>
