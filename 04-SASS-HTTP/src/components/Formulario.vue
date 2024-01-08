@@ -33,8 +33,11 @@ export default {
         cripto: ""
     }),
     methods: {
-        obtener(){
-            console.log(this.moneda, this.cripto)
+        async obtener(){
+            const endpoint = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD";
+            const res = await fetch(endpoint);
+            const data = await res.json();
+            console.log(data);
         }
     }
 }
